@@ -1,6 +1,7 @@
 from string import digits
 
 from flask import Flask, jsonify, request
+from flask_cors import cross_origin
 
 import postcodetabel
 
@@ -8,6 +9,7 @@ app = Flask(__name__)
 
 
 @app.route('/')
+@cross_origin()
 def index():
     postal_code = postcodetabel.postcodes.get(
         "".join(c for c in request.args.get('postal_code', '').strip() if c.isalnum())
