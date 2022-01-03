@@ -2,8 +2,9 @@
 
 Example usage of the API:
 
-```javascript
-let fillStreetCity = function () {
+```html
+<script type="text/javascript">
+    let fillStreetCity = function () {
     let postal_code = document.getElementById('postal_code').value
     let house_number = document.getElementById('house_number').value
     let url = new URL('http://postcode/');  // replace this with the location of the Flask app
@@ -18,4 +19,11 @@ let fillStreetCity = function () {
         })
     })
 }
+</script>
+<form>
+    <input id="postal_code" name="postal_code" onchange="fillStreetCity()" required>
+    <input id="house_number" name="house_number" onchange="fillStreetCity()" required>
+    <input id="street" name="street" required>
+    <input id="city" name="city" required>
+</form>
 ```
